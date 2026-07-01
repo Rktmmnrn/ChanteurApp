@@ -3,6 +3,51 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:padding="10dp"
+    android:gravity="center_vertical"
+    android:background="?android:attr/selectableItemBackground">
+
+    <!-- Photo du chanteur (cercle) -->
+    <ImageView
+        android:id="@+id/imgPhoto"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/ic_launcher_background"
+        android:clipToOutline="true"/>
+
+    <!-- Nom et date de naissance -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp">
+
+        <TextView
+            android:id="@+id/tvNom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Nom du chanteur"/>
+
+        <TextView
+            android:id="@+id/tvDatenais"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:text="Date de naissance"/>
+
+    </LinearLayout>
+
+    <!-- Bouton supprimer -->
+    <Button
+        android:id="@+id/btnSupprimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🗑️"
+        android:backgroundTint="#E53935"
+        android:padding="8dp"/>
 
 </LinearLayout>

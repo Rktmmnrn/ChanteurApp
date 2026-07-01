@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
+
+    <!-- Barre de recherche -->
+    <EditText
+        android:id="@+id/etRecherche"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Rechercher un chanteur..."
+        android:inputType="text"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Résultats de la recherche -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSearch"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- Message si aucun résultat -->
+    <TextView
+        android:id="@+id/tvAucunResultat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aucun résultat trouvé."
+        android:textAlignment="center"
+        android:visibility="gone"
+        android:layout_marginTop="40dp"
+        android:alpha="0.6"/>
 
 </LinearLayout>
