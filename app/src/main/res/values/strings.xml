@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">ChanteurApp</string>
+    <string name="action_search">Rechercher</string>
+    <string name="action_add">+ Ajouter un chanteur</string>
+    <string name="search_title">Rechercher</string>
+    <string name="add_edit_title">Ajouter un chanteur</string>
+    <string name="save">Enregistrer</string>
+    <string name="no_singers">Aucun chanteur enregistré.</string>
+    <string name="no_search_results">Aucun résultat trouvé.</string>
+    <string name="search_hint">Rechercher un chanteur...</string>
+    <string name="name_hint">Nom du chanteur</string>
+    <string name="date_hint">Date de naissance</string>
+    <string name="photo_hint">Photo du chanteur</string>
+    <string name="delete">Supprimer</string>
 </resources>

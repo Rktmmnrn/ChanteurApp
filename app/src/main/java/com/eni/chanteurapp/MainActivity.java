@@ -1,12 +1,13 @@
 package com.eni.chanteurapp;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -55,10 +56,12 @@ public class MainActivity extends AppCompatActivity {
                 public void onDeleteClick(Chanteur chanteur) {
                     // Demander confirmation avant de supprimer
                     new AlertDialog.Builder(MainActivity.this)
-                        .setTitle("Confirmation")
-                        .setMessage("Supprimer " + chanteur.getNom() + " ?")
+                        .setTitle("Confirmer la suppression")
+                        .setMessage("Êtes-vous sûr de vouloir supprimer " + chanteur.getNom() + " ?")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton("Supprimer", (dialog, which) -> {
                             dbHelper.deleteChanteur(chanteur.getIdchant());
+                            Toast.makeText(MainActivity.this, "✅ Chanteur supprimé", Toast.LENGTH_SHORT).show();
                             rafraichirListe();
                         })
                         .setNegativeButton("Annuler", null)

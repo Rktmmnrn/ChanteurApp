@@ -1,44 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/md_theme_background"
     android:padding="16dp">
 
-    <!-- Bouton pour aller à l'écran de recherche -->
-    <Button
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:backgroundTint="@color/md_theme_surface"
+        android:title="@string/app_name"
+        android:titleTextColor="@color/md_theme_onSurface"
+        app:titleCentered="false" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRecherche"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="🔍 Rechercher"
-        android:backgroundTint="#3478F6"
-        android:layout_marginBottom="8dp"/>
+        android:text="@string/action_search"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/md_theme_primary"
+        android:textColor="@color/md_theme_onPrimary"
+        app:cornerRadius="12dp" />
 
-    <!-- Bouton pour aller à l'écran d'ajout -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAjouter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="+ Ajouter un chanteur"
-        android:backgroundTint="#34A853"
-        android:layout_marginBottom="16dp"/>
+        android:text="@string/action_add"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/md_theme_secondary"
+        android:textColor="@color/md_theme_onSecondary"
+        app:cornerRadius="12dp" />
 
-    <!-- Liste des chanteurs -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp" />
 
-    <!-- Message affiché si la liste est vide -->
     <TextView
         android:id="@+id/tvVide"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Aucun chanteur enregistré."
+        android:text="@string/no_singers"
         android:textAlignment="center"
+        android:textColor="@color/md_theme_onSurface"
         android:visibility="gone"
         android:layout_marginTop="40dp"
-        android:alpha="0.6"/>
+        android:alpha="0.75"
+        android:textSize="16sp" />
 
 </LinearLayout>

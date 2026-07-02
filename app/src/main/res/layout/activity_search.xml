@@ -1,35 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/md_theme_background">
 
-    <!-- Barre de recherche -->
-    <EditText
-        android:id="@+id/etRecherche"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBarSearch"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:backgroundTint="@color/md_theme_surface"
+        app:title="@string/search_title"
+        android:titleTextColor="@color/md_theme_onSurface" />
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Rechercher un chanteur..."
-        android:inputType="text"
-        android:layout_marginBottom="16dp"/>
+        android:hint="@string/search_hint"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
 
-    <!-- Résultats de la recherche -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etRecherche"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionSearch" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewSearch"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp" />
 
-    <!-- Message si aucun résultat -->
     <TextView
         android:id="@+id/tvAucunResultat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Aucun résultat trouvé."
+        android:text="@string/no_search_results"
         android:textAlignment="center"
+        android:textColor="@color/md_theme_onSurface"
         android:visibility="gone"
         android:layout_marginTop="40dp"
-        android:alpha="0.6"/>
+        android:alpha="0.75"
+        android:textSize="16sp" />
 
 </LinearLayout>

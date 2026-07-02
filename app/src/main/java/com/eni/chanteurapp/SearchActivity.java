@@ -7,7 +7,9 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,8 +51,18 @@ public class SearchActivity extends AppCompatActivity {
 
                 @Override
                 public void onDeleteClick(Chanteur chanteur) {
-                    dbHelper.deleteChanteur(chanteur.getIdchant());
-                    lancerRecherche(etRecherche.getText().toString());
+                    // Boîte de confirmation avant suppression
+                    new AlertDialog.Builder(SearchActivity.this)
+                        .setTitle("Confirmer la suppression")
+                        .setMessage("Êtes-vous sûr de vouloir supprimer " + chanteur.getNom() + " ?")  
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton("Supprimer", (dialog, which) -> {
+                            dbHelper.deleteChanteur(chanteur.getIdchant());
+                            Toast.makeText(SearchActivity.this, "✅ Chanteur supprimé", Toast.LENGTH_SHORT).show();
+                            lancerRecherche(etRecherche.getText().toString());
+                        })
+                        .setNegativeButton("Annuler", null)
+                        .show();
                 }
             }
         );

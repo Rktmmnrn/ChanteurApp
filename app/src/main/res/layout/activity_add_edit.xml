@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/md_theme_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -9,53 +12,78 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Photo cliquable pour choisir depuis la galerie -->
-        <ImageView
-            android:id="@+id/imgPhoto"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBarAddEdit"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:backgroundTint="@color/md_theme_surface"
+            app:title="@string/add_edit_title"
+            android:titleTextColor="@color/md_theme_onSurface" />
+
+        <FrameLayout
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_gravity="center_horizontal"
-            android:scaleType="centerCrop"
-            android:background="@drawable/ic_launcher_background"
-            android:layout_marginBottom="16dp"
-            android:clipToOutline="true"/>
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/imgPhoto"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/ic_camera_placeholder"
+                android:clipToOutline="true"
+                android:contentDescription="@string/photo_hint" />
+        </FrameLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nom *"
-            android:textStyle="bold"
-            android:layout_marginBottom="4dp"/>
-
-        <EditText
-            android:id="@+id/etNom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ex: Edith Piaf"
-            android:inputType="textPersonName"
-            android:layout_marginBottom="16dp"/>
+            android:text="Appuyer pour ajouter une photo"
+            android:textAlignment="center"
+            android:textColor="@color/md_theme_primary"
+            android:textSize="12sp"
+            android:alpha="0.8"
+            android:layout_marginBottom="20dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Date de naissance"
-            android:textStyle="bold"
-            android:layout_marginBottom="4dp"/>
-
-        <EditText
-            android:id="@+id/etDatenais"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ex: 1915-12-19"
-            android:inputType="date"
-            android:layout_marginBottom="24dp"/>
+            android:hint="@string/name_hint"
+            android:layout_marginBottom="16dp">
 
-        <Button
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/date_hint"
+            android:layout_marginBottom="24dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDatenais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="true"
+                android:cursorVisible="false" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnEnregistrer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enregistrer"
-            android:backgroundTint="#34A853"/>
+            android:text="@string/save"
+            android:backgroundTint="@color/md_theme_primary"
+            android:textColor="@color/md_theme_onPrimary"
+            app:cornerRadius="14dp" />
 
     </LinearLayout>
 
