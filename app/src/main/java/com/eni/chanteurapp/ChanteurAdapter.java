@@ -48,6 +48,7 @@ public class ChanteurAdapter extends RecyclerView.Adapter<ChanteurAdapter.Chante
     public void onBindViewHolder(@NonNull ChanteurViewHolder holder, int position) {
         Chanteur chanteur = chanteurs.get(position);
 
+        holder.tvNumero.setText(String.valueOf(position + 1));
         holder.tvNom.setText(chanteur.getNom());
         holder.tvDatenais.setText(
             chanteur.getDatenais() != null && !chanteur.getDatenais().isEmpty()
@@ -86,6 +87,7 @@ public class ChanteurAdapter extends RecyclerView.Adapter<ChanteurAdapter.Chante
         ImageView imgPhoto;
         TextView  tvNom;
         TextView  tvDatenais;
+        TextView  tvNumero;
         Button    btnSupprimer;
 
         public ChanteurViewHolder(@NonNull View itemView) {
@@ -93,6 +95,7 @@ public class ChanteurAdapter extends RecyclerView.Adapter<ChanteurAdapter.Chante
             imgPhoto    = itemView.findViewById(R.id.imgPhoto);
             tvNom       = itemView.findViewById(R.id.tvNom);
             tvDatenais  = itemView.findViewById(R.id.tvDatenais);
+            tvNumero     = itemView.findViewById(R.id.tvNumero);
             btnSupprimer = itemView.findViewById(R.id.btnSupprimer);
         }
     }

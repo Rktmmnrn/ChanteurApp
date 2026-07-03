@@ -18,6 +18,19 @@
         android:padding="14dp"
         android:gravity="center_vertical">
 
+        <!-- Numéro de position -->
+        <TextView
+            android:id="@+id/tvNumero"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/md_theme_primary"
+            android:background="@drawable/circle_photo_bg"
+            android:layout_marginEnd="8dp"
+            android:text="1" />
+
         <ImageView
             android:id="@+id/imgPhoto"
             android:layout_width="56dp"
